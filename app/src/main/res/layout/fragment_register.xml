@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/color_background"
+    android:fillViewport="true">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:padding="24dp"
+        android:gravity="center_horizontal">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Create Account"
+            android:textSize="28sp"
+            android:textColor="@color/color_on_background"
+            android:fontFamily="sans-serif-medium"
+            android:layout_marginTop="16dp"
+            android:layout_marginBottom="8dp"/>
+
+        <TextView android:layout_width="wrap_content" android:layout_height="wrap_content"
+            android:text="Join DrawerWide today" android:textSize="14sp"
+            android:textColor="@color/color_on_surface_variant" android:layout_marginBottom="32dp"/>
+
+        <com.google.android.material.textfield.TextInputLayout android:layout_width="match_parent"
+            android:layout_height="wrap_content" android:hint="Full Name"
+            style="@style/Widget.App.TextInputLayout" android:layout_marginBottom="14dp">
+            <com.google.android.material.textfield.TextInputEditText android:id="@+id/etName"
+                android:layout_width="match_parent" android:layout_height="wrap_content"
+                android:inputType="textPersonName" android:textColor="@color/color_on_background"/>
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <com.google.android.material.textfield.TextInputLayout android:layout_width="match_parent"
+            android:layout_height="wrap_content" android:hint="Email"
+            style="@style/Widget.App.TextInputLayout" android:layout_marginBottom="14dp">
+            <com.google.android.material.textfield.TextInputEditText android:id="@+id/etEmail"
+                android:layout_width="match_parent" android:layout_height="wrap_content"
+                android:inputType="textEmailAddress" android:textColor="@color/color_on_background"/>
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <com.google.android.material.textfield.TextInputLayout android:layout_width="match_parent"
+            android:layout_height="wrap_content" android:hint="Phone Number"
+            style="@style/Widget.App.TextInputLayout" android:layout_marginBottom="14dp">
+            <com.google.android.material.textfield.TextInputEditText android:id="@+id/etPhone"
+                android:layout_width="match_parent" android:layout_height="wrap_content"
+                android:inputType="phone" android:textColor="@color/color_on_background"/>
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <com.google.android.material.textfield.TextInputLayout android:layout_width="match_parent"
+            android:layout_height="wrap_content" android:hint="Password (min 6 chars)"
+            style="@style/Widget.App.TextInputLayout" app:passwordToggleEnabled="true"
+            android:layout_marginBottom="32dp">
+            <com.google.android.material.textfield.TextInputEditText android:id="@+id/etPassword"
+                android:layout_width="match_parent" android:layout_height="wrap_content"
+                android:inputType="textPassword" android:textColor="@color/color_on_background"/>
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <Button android:id="@+id/btnRegister" android:layout_width="match_parent"
+            android:layout_height="56dp" android:text="Create Account"
+            android:background="@drawable/bg_button_primary" android:textColor="@color/white"
+            android:textSize="16sp" android:fontFamily="sans-serif-medium" android:layout_marginBottom="16dp"/>
+
+        <ProgressBar android:id="@+id/progressBar" android:layout_width="wrap_content"
+            android:layout_height="wrap_content" android:visibility="gone" android:layout_marginBottom="16dp"/>
+
+        <TextView android:id="@+id/tvGoLogin" android:layout_width="wrap_content"
+            android:layout_height="wrap_content" android:text="Already have an account? Sign In"
+            android:textSize="14sp" android:textColor="@color/color_primary" android:padding="8dp"/>
+    </LinearLayout>
+</ScrollView>

@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!-- Spacing -->
+    <dimen name="spacing_xs">4dp</dimen>
+    <dimen name="spacing_sm">8dp</dimen>
+    <dimen name="spacing_md">16dp</dimen>
+    <dimen name="spacing_lg">24dp</dimen>
+    <dimen name="spacing_xl">32dp</dimen>
+    <dimen name="spacing_xxl">48dp</dimen>
+
+    <!-- Corner Radius -->
+    <dimen name="radius_sm">8dp</dimen>
+    <dimen name="radius_md">16dp</dimen>
+    <dimen name="radius_lg">24dp</dimen>
+    <dimen name="radius_pill">100dp</dimen>
+
+    <!-- Text Sizes -->
+    <dimen name="text_xs">11sp</dimen>
+    <dimen name="text_sm">13sp</dimen>
+    <dimen name="text_md">15sp</dimen>
+    <dimen name="text_lg">17sp</dimen>
+    <dimen name="text_xl">22sp</dimen>
+    <dimen name="text_display">32sp</dimen>
+
+    <!-- Component Sizes -->
+    <dimen name="bottom_nav_height">70dp</dimen>
+    <dimen name="toolbar_height">56dp</dimen>
+    <dimen name="mode_card_height">180dp</dimen>
+    <dimen name="product_card_image_height">160dp</dimen>
+    <dimen name="reel_item_image_height">200dp</dimen>
+    <dimen name="banner_image_height">200dp</dimen>
+    <dimen name="category_chip_height">38dp</dimen>
+    <dimen name="profile_image_size">80dp</dimen>
+</resources>

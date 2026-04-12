@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/nav_seller"
+    app:startDestination="@id/nav_store">
+
+    <fragment
+        android:id="@+id/nav_store"
+        android:name="com.drawer.platform.seller.store.StoreFragment"
+        android:label="My Store"/>
+    <fragment
+        android:id="@+id/nav_products"
+        android:name="com.drawer.platform.seller.products.ProductListFragment"
+        android:label="Products"/>
+    <fragment
+        android:id="@+id/nav_seller_orders"
+        android:name="com.drawer.platform.seller.orders.SellerOrdersFragment"
+        android:label="Orders"/>
+    <fragment
+        android:id="@+id/nav_seller_profile"
+        android:name="com.drawer.platform.seller.profile.SellerProfileFragment"
+        android:label="Profile"/>
+</navigation>

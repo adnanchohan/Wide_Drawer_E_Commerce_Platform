@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/nav_buyer"
+    app:startDestination="@id/nav_home">
+
+    <fragment
+        android:id="@+id/nav_home"
+        android:name="com.drawer.platform.buyer.home.HomeFragment"
+        android:label="Home"/>
+    <fragment
+        android:id="@+id/nav_search"
+        android:name="com.drawer.platform.buyer.search.SearchFragment"
+        android:label="Search"/>
+    <fragment
+        android:id="@+id/nav_cart"
+        android:name="com.drawer.platform.buyer.cart.CartFragment"
+        android:label="Cart"/>
+    <fragment
+        android:id="@+id/nav_orders"
+        android:name="com.drawer.platform.buyer.orders.BuyerOrdersFragment"
+        android:label="My Orders"/>
+    <fragment
+        android:id="@+id/nav_buyer_profile"
+        android:name="com.drawer.platform.buyer.profile.BuyerProfileFragment"
+        android:label="Profile"/>
+</navigation>

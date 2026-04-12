@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/nav_deliver"
+    app:startDestination="@id/nav_available">
+
+    <fragment
+        android:id="@+id/nav_available"
+        android:name="com.drawer.platform.deliver.orders.AvailableOrdersFragment"
+        android:label="Available"/>
+    <fragment
+        android:id="@+id/nav_my_deliveries"
+        android:name="com.drawer.platform.deliver.orders.MyDeliveriesFragment"
+        android:label="My Deliveries"/>
+    <fragment
+        android:id="@+id/nav_deliver_profile"
+        android:name="com.drawer.platform.deliver.profile.DeliverProfileFragment"
+        android:label="Profile"/>
+</navigation>

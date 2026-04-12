@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_margin="8dp"
+    app:cardBackgroundColor="@color/color_surface_variant"
+    app:cardCornerRadius="16dp"
+    app:cardElevation="0dp"
+    app:strokeColor="@color/color_card_stroke"
+    app:strokeWidth="1dp">
+
+    <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content"
+        android:orientation="vertical" android:padding="16dp">
+
+        <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content"
+            android:orientation="horizontal" android:gravity="center_vertical" android:layout_marginBottom="10dp">
+            <LinearLayout android:layout_width="0dp" android:layout_height="wrap_content"
+                android:layout_weight="1" android:orientation="vertical">
+                <TextView android:id="@+id/tvOrderId" android:layout_width="wrap_content"
+                    android:layout_height="wrap_content" android:textSize="12sp"
+                    android:textColor="@color/color_on_surface_variant" android:layout_marginBottom="4dp"/>
+                <TextView android:id="@+id/tvProductName" android:layout_width="wrap_content"
+                    android:layout_height="wrap_content" android:textSize="16sp"
+                    android:textColor="@color/color_on_background" android:fontFamily="sans-serif-medium"/>
+            </LinearLayout>
+            <TextView android:id="@+id/tvStatus" android:layout_width="wrap_content"
+                android:layout_height="wrap_content" android:textSize="11sp"
+                android:textColor="@color/color_success" android:background="@drawable/bg_chip_normal"
+                android:paddingHorizontal="10dp" android:paddingVertical="4dp"/>
+        </LinearLayout>
+
+        <TextView android:id="@+id/tvBuyerName" android:layout_width="wrap_content"
+            android:layout_height="wrap_content" android:textSize="13sp"
+            android:textColor="@color/color_on_surface_variant" android:layout_marginBottom="4dp"/>
+        <TextView android:id="@+id/tvPickupAddress" android:layout_width="wrap_content"
+            android:layout_height="wrap_content" android:textSize="13sp"
+            android:textColor="@color/color_on_surface_variant" android:layout_marginBottom="4dp"/>
+        <TextView android:id="@+id/tvDeliveryAddress" android:layout_width="wrap_content"
+            android:layout_height="wrap_content" android:textSize="13sp"
+            android:textColor="@color/color_warning" android:layout_marginBottom="10dp"/>
+
+        <TextView android:id="@+id/tvTotal" android:layout_width="wrap_content"
+            android:layout_height="wrap_content" android:textSize="18sp"
+            android:textColor="@color/color_tertiary" android:fontFamily="sans-serif-medium"
+            android:layout_gravity="end" android:layout_marginBottom="12dp"/>
+
+        <View android:layout_width="match_parent" android:layout_height="1dp"
+            android:background="@color/color_divider" android:layout_marginBottom="12dp"/>
+
+        <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content" android:orientation="horizontal">
+            <Button android:id="@+id/btnAccept" android:layout_width="match_parent"
+                android:layout_height="42dp" android:text="Accept Order"
+                android:background="@drawable/bg_button_primary" android:textColor="@color/white"
+                android:textSize="13sp" android:visibility="gone"/>
+            <Button android:id="@+id/btnPickedUp" android:layout_width="0dp"
+                android:layout_height="42dp" android:layout_weight="1" android:text="Mark Picked Up"
+                android:backgroundTint="@color/color_warning" android:textColor="@color/black"
+                android:textSize="12sp" android:layout_marginEnd="6dp" android:visibility="gone"/>
+            <Button android:id="@+id/btnDelivered" android:layout_width="0dp"
+                android:layout_height="42dp" android:layout_weight="1" android:text="Mark Delivered"
+                android:backgroundTint="@color/color_success" android:textColor="@color/black"
+                android:textSize="12sp" android:visibility="gone"/>
+        </LinearLayout>
+    </LinearLayout>
+</androidx.cardview.widget.CardView>

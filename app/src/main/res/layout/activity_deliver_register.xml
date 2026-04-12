@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:background="@color/color_background">
+
+    <com.google.android.material.appbar.MaterialToolbar
+        android:id="@+id/toolbar"
+        android:layout_width="match_parent"
+        android:layout_height="?attr/actionBarSize"
+        android:background="@color/color_surface"
+        app:title="Delivery Profile"
+        app:titleTextColor="@color/color_on_background"/>
+
+    <ScrollView android:layout_width="match_parent" android:layout_height="0dp" android:layout_weight="1">
+        <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content"
+            android:orientation="vertical" android:padding="20dp">
+
+            <TextView android:layout_width="wrap_content" android:layout_height="wrap_content"
+                android:text="Set up your delivery profile to start accepting orders"
+                android:textSize="14sp" android:textColor="@color/color_on_surface_variant"
+                android:lineSpacingMultiplier="1.5" android:layout_marginBottom="24dp"/>
+
+            <com.google.android.material.textfield.TextInputLayout android:layout_width="match_parent"
+                android:layout_height="wrap_content" android:hint="Vehicle Type (e.g., Motorcycle, Car, Bicycle)"
+                style="@style/Widget.App.TextInputLayout" android:layout_marginBottom="14dp">
+                <com.google.android.material.textfield.TextInputEditText android:id="@+id/etVehicleType"
+                    android:layout_width="match_parent" android:layout_height="wrap_content"
+                    android:textColor="@color/color_on_background"/>
+            </com.google.android.material.textfield.TextInputLayout>
+
+            <com.google.android.material.textfield.TextInputLayout android:layout_width="match_parent"
+                android:layout_height="wrap_content" android:hint="Coverage Area (e.g., Downtown, Zone 3)"
+                style="@style/Widget.App.TextInputLayout" android:layout_marginBottom="20dp">
+                <com.google.android.material.textfield.TextInputEditText android:id="@+id/etCoverageArea"
+                    android:layout_width="match_parent" android:layout_height="wrap_content"
+                    android:textColor="@color/color_on_background"/>
+            </com.google.android.material.textfield.TextInputLayout>
+
+            <TextView android:layout_width="wrap_content" android:layout_height="wrap_content"
+                android:text="ID Proof (optional)" android:textSize="13sp"
+                android:textColor="@color/color_on_surface_variant" android:layout_marginBottom="8dp"/>
+            <ImageView android:id="@+id/ivIdProof" android:layout_width="match_parent"
+                android:layout_height="160dp" android:scaleType="centerCrop"
+                android:src="@drawable/ic_placeholder" android:background="@drawable/bg_card_dark"
+                android:layout_marginBottom="8dp"/>
+            <Button android:id="@+id/btnPickIdProof" android:layout_width="wrap_content"
+                android:layout_height="wrap_content" android:text="📷 Pick ID Image"
+                android:backgroundTint="@color/color_surface_variant"
+                android:textColor="@color/color_primary" android:layout_marginBottom="32dp"/>
+
+            <Button android:id="@+id/btnSave" android:layout_width="match_parent"
+                android:layout_height="56dp" android:text="Save Profile"
+                android:background="@drawable/bg_button_primary" android:textColor="@color/white"
+                android:textSize="16sp" android:fontFamily="sans-serif-medium"/>
+        </LinearLayout>
+    </ScrollView>
+</LinearLayout>

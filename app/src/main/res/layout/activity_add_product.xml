@@ -1,0 +1,93 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:background="@color/color_background">
+
+    <com.google.android.material.appbar.MaterialToolbar
+        android:id="@+id/toolbar"
+        android:layout_width="match_parent"
+        android:layout_height="?attr/actionBarSize"
+        android:background="@color/color_surface"
+        app:title="Add Product"
+        app:titleTextColor="@color/color_on_background"/>
+
+    <ScrollView android:layout_width="match_parent" android:layout_height="0dp" android:layout_weight="1">
+        <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content"
+            android:orientation="vertical" android:padding="20dp">
+
+            <com.google.android.material.textfield.TextInputLayout android:layout_width="match_parent"
+                android:layout_height="wrap_content" android:hint="Product Name"
+                style="@style/Widget.App.TextInputLayout" android:layout_marginBottom="14dp">
+                <com.google.android.material.textfield.TextInputEditText android:id="@+id/etProductName"
+                    android:layout_width="match_parent" android:layout_height="wrap_content"
+                    android:textColor="@color/color_on_background"/>
+            </com.google.android.material.textfield.TextInputLayout>
+
+            <com.google.android.material.textfield.TextInputLayout android:layout_width="match_parent"
+                android:layout_height="wrap_content" android:hint="Description"
+                style="@style/Widget.App.TextInputLayout" android:layout_marginBottom="14dp">
+                <com.google.android.material.textfield.TextInputEditText android:id="@+id/etProductDesc"
+                    android:layout_width="match_parent" android:layout_height="wrap_content"
+                    android:inputType="textMultiLine" android:minLines="3"
+                    android:textColor="@color/color_on_background"/>
+            </com.google.android.material.textfield.TextInputLayout>
+
+            <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content"
+                android:orientation="horizontal" android:layout_marginBottom="14dp">
+                <com.google.android.material.textfield.TextInputLayout android:layout_width="0dp"
+                    android:layout_height="wrap_content" android:layout_weight="1"
+                    android:hint="Price ($)" style="@style/Widget.App.TextInputLayout"
+                    android:layout_marginEnd="8dp">
+                    <com.google.android.material.textfield.TextInputEditText android:id="@+id/etPrice"
+                        android:layout_width="match_parent" android:layout_height="wrap_content"
+                        android:inputType="numberDecimal" android:textColor="@color/color_on_background"/>
+                </com.google.android.material.textfield.TextInputLayout>
+                <com.google.android.material.textfield.TextInputLayout android:layout_width="0dp"
+                    android:layout_height="wrap_content" android:layout_weight="1"
+                    android:hint="Stock" style="@style/Widget.App.TextInputLayout">
+                    <com.google.android.material.textfield.TextInputEditText android:id="@+id/etStock"
+                        android:layout_width="match_parent" android:layout_height="wrap_content"
+                        android:inputType="number" android:textColor="@color/color_on_background"/>
+                </com.google.android.material.textfield.TextInputLayout>
+            </LinearLayout>
+
+            <TextView android:layout_width="wrap_content" android:layout_height="wrap_content"
+                android:text="Category" android:textSize="13sp"
+                android:textColor="@color/color_on_surface_variant" android:layout_marginBottom="8dp"/>
+            <Spinner android:id="@+id/spinnerCategory" android:layout_width="match_parent"
+                android:layout_height="56dp" android:background="@drawable/bg_card_dark"
+                android:padding="12dp" android:layout_marginBottom="20dp"/>
+
+            <TextView android:layout_width="wrap_content" android:layout_height="wrap_content"
+                android:text="Product Images" android:textSize="13sp"
+                android:textColor="@color/color_on_surface_variant" android:layout_marginBottom="8dp"/>
+            <androidx.recyclerview.widget.RecyclerView android:id="@+id/rvImages"
+                android:layout_width="match_parent" android:layout_height="110dp"
+                android:layout_marginBottom="8dp"/>
+            <Button android:id="@+id/btnPickImages" android:layout_width="wrap_content"
+                android:layout_height="wrap_content" android:text="📷 Pick Images"
+                android:backgroundTint="@color/color_surface_variant"
+                android:textColor="@color/color_primary" android:layout_marginBottom="20dp"/>
+
+            <TextView android:layout_width="wrap_content" android:layout_height="wrap_content"
+                android:text="Product Video (Reel)" android:textSize="13sp"
+                android:textColor="@color/color_on_surface_variant" android:layout_marginBottom="8dp"/>
+            <TextView android:id="@+id/tvVideoStatus" android:layout_width="wrap_content"
+                android:layout_height="wrap_content" android:text="No video selected"
+                android:textSize="13sp" android:textColor="@color/color_on_surface_variant"
+                android:layout_marginBottom="8dp"/>
+            <Button android:id="@+id/btnPickVideo" android:layout_width="wrap_content"
+                android:layout_height="wrap_content" android:text="🎬 Pick Video"
+                android:backgroundTint="@color/color_surface_variant"
+                android:textColor="@color/color_secondary" android:layout_marginBottom="32dp"/>
+
+            <Button android:id="@+id/btnSaveProduct" android:layout_width="match_parent"
+                android:layout_height="56dp" android:text="Save Product"
+                android:background="@drawable/bg_button_primary" android:textColor="@color/white"
+                android:textSize="16sp" android:fontFamily="sans-serif-medium"/>
+        </LinearLayout>
+    </ScrollView>
+</LinearLayout>
