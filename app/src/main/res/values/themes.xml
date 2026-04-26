@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources xmlns:tools="http://schemas.android.com/tools">
-    <style name="Base.Theme.DrawerWide" parent="Theme.Material3.Dark.NoActionBar">
+    <style name="Base.Theme.DrawerWide" parent="Theme.Material3.Light.NoActionBar">
         <item name="colorPrimary">@color/color_primary</item>
         <item name="colorPrimaryDark">@color/color_primary_dark</item>
         <item name="colorPrimaryContainer">@color/color_primary_container</item>
@@ -8,25 +8,27 @@
         <item name="colorSecondary">@color/color_secondary</item>
         <item name="colorOnSecondary">@color/color_on_secondary</item>
         <item name="colorSecondaryContainer">@color/color_secondary_container</item>
-        <item name="android:colorBackground">@color/color_background</item>
-        <item name="colorSurface">@color/color_surface</item>
-        <item name="colorSurfaceVariant">@color/color_surface_variant</item>
-        <item name="colorOnSurface">@color/color_on_surface</item>
+        <item name="android:colorBackground">@color/light_background</item>
+        <item name="colorSurface">@color/light_surface</item>
+        <item name="colorSurfaceVariant">@color/light_surface_variant</item>
+        <item name="colorOnSurface">@color/light_on_surface</item>
+        <item name="colorOnSurfaceVariant">@color/light_on_surface_variant</item>
         <item name="colorError">@color/color_error</item>
-        <item name="android:windowBackground">@color/color_background</item>
-        <item name="android:statusBarColor">@color/color_background</item>
-        <item name="android:navigationBarColor">@color/color_surface</item>
+        <item name="android:windowBackground">@color/light_background</item>
+        <item name="android:statusBarColor">@color/light_background</item>
+        <item name="android:windowLightStatusBar">true</item>
+        <item name="android:navigationBarColor">@color/light_surface</item>
     </style>
 
     <style name="Theme.DrawerWide" parent="Base.Theme.DrawerWide" />
 
     <style name="TextAppearance.App.Display" parent="TextAppearance.Material3.DisplaySmall">
-        <item name="android:textColor">@color/color_on_background</item>
+        <item name="android:textColor">@color/light_on_background</item>
         <item name="android:fontFamily">sans-serif-medium</item>
     </style>
 
     <style name="TextAppearance.App.Title" parent="TextAppearance.Material3.TitleLarge">
-        <item name="android:textColor">@color/color_on_background</item>
+        <item name="android:textColor">@color/light_on_background</item>
     </style>
 
     <style name="Widget.App.Button.Primary" parent="Widget.Material3.Button">
@@ -47,17 +49,28 @@
     </style>
 
     <style name="Widget.App.CardView" parent="Widget.Material3.CardView.Elevated">
-        <item name="cardBackgroundColor">@color/color_surface_variant</item>
+        <item name="cardBackgroundColor">@color/light_surface_variant</item>
         <item name="cardCornerRadius">16dp</item>
         <item name="cardElevation">0dp</item>
         <item name="strokeColor">@color/color_card_stroke</item>
         <item name="strokeWidth">1dp</item>
     </style>
 
+    <style name="Widget.App.TextInputLayout" parent="Widget.Material3.TextInputLayout.OutlinedBox">
+        <item name="boxStrokeColor">@color/color_primary</item>
+        <item name="hintTextColor">@color/light_on_surface_variant</item>
+        <item name="android:textColorHint">@color/light_on_surface_variant</item>
+        <item name="boxCornerRadiusBottomEnd">12dp</item>
+        <item name="boxCornerRadiusBottomStart">12dp</item>
+        <item name="boxCornerRadiusTopEnd">12dp</item>
+        <item name="boxCornerRadiusTopStart">12dp</item>
+        <item name="boxBackgroundColor">@color/light_surface_variant</item>
+    </style>
+
     <style name="Widget.App.BottomNavigationView" parent="Widget.Material3.BottomNavigationView">
-        <item name="android:background">@color/color_surface</item>
-        <item name="itemIconTint">@color/color_on_surface_variant</item>
-        <item name="itemTextColor">@color/color_on_surface_variant</item>
+        <item name="android:background">@color/light_surface</item>
+        <item name="itemIconTint">@color/light_on_surface_variant</item>
+        <item name="itemTextColor">@color/light_on_surface_variant</item>
         <item name="itemActiveIndicatorStyle">@style/Widget.App.BottomNavigationView.ActiveIndicator</item>
     </style>
 
@@ -65,19 +78,8 @@
         <item name="android:color">@color/color_primary_container</item>
     </style>
 
-    <style name="Widget.App.TextInputLayout" parent="Widget.Material3.TextInputLayout.OutlinedBox">
-        <item name="boxStrokeColor">@color/color_primary</item>
-        <item name="hintTextColor">@color/color_on_surface_variant</item>
-        <item name="android:textColorHint">@color/color_on_surface_variant</item>
-        <item name="boxCornerRadiusBottomEnd">12dp</item>
-        <item name="boxCornerRadiusBottomStart">12dp</item>
-        <item name="boxCornerRadiusTopEnd">12dp</item>
-        <item name="boxCornerRadiusTopStart">12dp</item>
-        <item name="boxBackgroundColor">@color/color_surface_variant</item>
-    </style>
-
     <style name="Theme.App.SplashScreen" parent="Theme.DrawerWide">
         <item name="android:windowIsTranslucent">false</item>
-        <item name="android:windowBackground">@color/color_background</item>
+        <item name="android:windowBackground">@color/light_background</item>
     </style>
 </resources>

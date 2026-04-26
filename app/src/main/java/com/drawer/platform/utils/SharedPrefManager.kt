@@ -33,4 +33,16 @@ class SharedPrefManager private constructor(context: Context) {
     fun getUserEmail(): String = prefs.getString(Constants.KEY_USER_EMAIL, "") ?: ""
 
     fun clearSession() = prefs.edit().clear().apply()
+
+    fun setThemeMode(isDarkMode: Boolean) {
+        prefs.edit().putBoolean("key_theme_mode", isDarkMode).apply()
+    }
+
+    fun isDarkMode(): Boolean = prefs.getBoolean("key_theme_mode", true)
+
+    fun setOnboardingFinished(finished: Boolean) {
+        prefs.edit().putBoolean(Constants.KEY_ONBOARDING_FINISHED, finished).apply()
+    }
+
+    fun isOnboardingFinished(): Boolean = prefs.getBoolean(Constants.KEY_ONBOARDING_FINISHED, false)
 }

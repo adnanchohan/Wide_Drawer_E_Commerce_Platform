@@ -1,6 +1,8 @@
 <resources>
     <string name="app_name">DrawerWide</string>
-    <string name="tagline">Buy · Sell · Deliver</string>
+    <string name="navigation_drawer_open">Open navigation drawer</string>
+    <string name="navigation_drawer_close">Close navigation drawer</string>
+    <string name="tagline">Buy · Sell</string>
 
     <!-- Onboarding -->
     <string name="choose_your_role">Choose Your Role</string>

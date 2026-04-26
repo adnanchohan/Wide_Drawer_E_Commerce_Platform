@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+    <group android:checkableBehavior="single">
+        <item
+            android:id="@+id/nav_switch_role"
+            android:title="🏪 Switch to Seller Mode" />
+        <item
+            android:id="@+id/nav_theme"
+            android:title="🌓 Toggle Dark Mode" />
+    </group>
+
+    <item android:title="Account">
+        <menu>
+            <item
+                android:id="@+id/nav_profile"
+                android:title="👤 My Profile" />
+            <item
+                android:id="@+id/nav_logout"
+                android:title="🚪 Logout" />
+        </menu>
+    </item>
+
+    <item android:title="App Settings">
+        <menu>
+            <item
+                android:id="@+id/nav_settings"
+                android:title="⚙️ Settings" />
+            <item
+                android:id="@+id/nav_help"
+                android:title="❓ Help &amp; Support" />
+        </menu>
+    </item>
+</menu>

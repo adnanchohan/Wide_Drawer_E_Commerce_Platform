@@ -7,6 +7,7 @@ object Constants {
     const val KEY_USER_NAME = "user_name"
     const val KEY_USER_EMAIL = "user_email"
     const val KEY_IS_LOGGED_IN = "is_logged_in"
+    const val KEY_ONBOARDING_FINISHED = "onboarding_finished"
 
     const val EXTRA_MODE = "extra_mode"
     const val EXTRA_PRODUCT_ID = "extra_product_id"

@@ -1,5 +1,6 @@
 package com.drawer.platform.buyer.cart
 
+import android.content.Intent
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
@@ -7,7 +8,10 @@ import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
 import androidx.recyclerview.widget.LinearLayoutManager
+import com.drawer.platform.auth.AuthActivity
 import com.drawer.platform.databinding.FragmentCartBinding
+import com.drawer.platform.utils.Constants
+import com.drawer.platform.utils.SharedPrefManager
 import com.drawer.platform.utils.hide
 import com.drawer.platform.utils.show
 import com.drawer.platform.utils.showToast
@@ -45,6 +49,12 @@ class CartFragment : Fragment() {
         }
 
         b.btnPlaceOrder.setOnClickListener {
+            val prefs = SharedPrefManager.getInstance(requireContext())
+            if (!prefs.isLoggedIn()) {
+                requireContext().showToast("Please login to place an order")
+                startActivity(Intent(requireContext(), AuthActivity::class.java).putExtra(Constants.EXTRA_MODE, Constants.MODE_BUYER))
+                return@setOnClickListener
+            }
             val address = b.etAddress.text.toString()
             val phone = b.etPhone.text.toString()
             vm.placeOrder(address, phone)

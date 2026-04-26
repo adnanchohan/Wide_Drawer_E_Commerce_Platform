@@ -1,45 +1,56 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <!-- Primary Brand -->
-    <color name="color_primary">#7C4DFF</color>
-    <color name="color_primary_dark">#5C35CC</color>
-    <color name="color_primary_container">#2D1B69</color>
+    <!-- Brand Colors -->
+    <color name="color_primary">#6366F1</color> <!-- Indigo -->
+    <color name="color_primary_dark">#4F46E5</color>
+    <color name="color_primary_container">#E0E7FF</color>
     <color name="color_on_primary">#FFFFFF</color>
 
-    <!-- Secondary -->
-    <color name="color_secondary">#FF4081</color>
-    <color name="color_secondary_container">#BB1649</color>
+    <color name="color_secondary">#EC4899</color> <!-- Pink -->
+    <color name="color_secondary_container">#FCE7F3</color>
     <color name="color_on_secondary">#FFFFFF</color>
 
-    <!-- Tertiary / Accent -->
+    <!-- Dark Theme Colors -->
+    <color name="dark_background">#0F172A</color>
+    <color name="dark_surface">#1E293B</color>
+    <color name="dark_surface_variant">#334155</color>
+    <color name="dark_on_background">#F8FAFC</color>
+    <color name="dark_on_surface">#E2E8F0</color>
+    <color name="dark_on_surface_variant">#94A3B8</color>
+
+    <!-- Light Theme Colors -->
+    <color name="light_background">#F8FAFC</color>
+    <color name="light_surface">#FFFFFF</color>
+    <color name="light_surface_variant">#F1F5F9</color>
+    <color name="light_on_background">#0F172A</color>
+    <color name="light_on_surface">#1E293B</color>
+    <color name="light_on_surface_variant">#64748B</color>
+
+    <!-- Legacy / Dynamic Names (Light) -->
+    <color name="color_background">@color/light_background</color>
+    <color name="color_surface">@color/light_surface</color>
+    <color name="color_surface_variant">@color/light_surface_variant</color>
+    <color name="color_on_background">@color/light_on_background</color>
+    <color name="color_on_surface">@color/light_on_surface</color>
+    <color name="color_on_surface_variant">@color/light_on_surface_variant</color>
+    <color name="color_divider">#1A000000</color>
+    <color name="color_card_stroke">#2A000000</color>
+    <color name="color_overlay">#99000000</color>
     <color name="color_tertiary">#00E5FF</color>
 
-    <!-- Backgrounds -->
-    <color name="color_background">#0A0A1A</color>
-    <color name="color_surface">#14142B</color>
-    <color name="color_surface_variant">#1F1F3E</color>
-    <color name="color_on_background">#E8EAFF</color>
-    <color name="color_on_surface">#CDD0FF</color>
-    <color name="color_on_surface_variant">#8890CC</color>
-
     <!-- Status -->
-    <color name="color_success">#00E676</color>
-    <color name="color_warning">#FFD740</color>
-    <color name="color_error">#CF6679</color>
+    <color name="color_success">#10B981</color>
+    <color name="color_warning">#F59E0B</color>
+    <color name="color_error">#EF4444</color>
 
     <!-- Mode Gradients -->
-    <color name="color_seller_start">#667EEA</color>
-    <color name="color_seller_end">#764BA2</color>
-    <color name="color_buyer_start">#F093FB</color>
-    <color name="color_buyer_end">#F5576C</color>
-    <color name="color_deliver_start">#4FACFE</color>
-    <color name="color_deliver_end">#00F2FE</color>
+    <color name="color_seller_start">#4F46E5</color>
+    <color name="color_seller_end">#7C3AED</color>
+    <color name="color_buyer_start">#EC4899</color>
+    <color name="color_buyer_end">#F43F5E</color>
 
     <!-- Utility -->
     <color name="white">#FFFFFF</color>
     <color name="black">#000000</color>
     <color name="transparent">#00000000</color>
-    <color name="color_divider">#1AFFFFFF</color>
-    <color name="color_card_stroke">#2AFFFFFF</color>
-    <color name="color_overlay">#99000000</color>
 </resources>

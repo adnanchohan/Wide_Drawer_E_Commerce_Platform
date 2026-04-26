@@ -2,60 +2,155 @@ package com.drawer.platform.seller.store
 
 import android.net.Uri
 import android.os.Bundle
+import androidx.activity.ComponentActivity
+import androidx.activity.compose.rememberLauncherForActivityResult
+import androidx.activity.compose.setContent
 import androidx.activity.result.contract.ActivityResultContracts
-import androidx.activity.viewModels
-import androidx.appcompat.app.AppCompatActivity
-import com.drawer.platform.databinding.ActivityCreateStoreBinding
+import androidx.compose.foundation.background
+import androidx.compose.foundation.clickable
+import androidx.compose.foundation.layout.*
+import androidx.compose.foundation.rememberScrollState
+import androidx.compose.foundation.shape.RoundedCornerShape
+import androidx.compose.foundation.verticalScroll
+import androidx.compose.material.icons.Icons
+import androidx.compose.material.icons.filled.ArrowBack
+import androidx.compose.material.icons.filled.Image
+import androidx.compose.material3.*
+import androidx.compose.runtime.*
+import androidx.compose.runtime.livedata.observeAsState
+import androidx.compose.ui.Alignment
+import androidx.compose.ui.Modifier
+import androidx.compose.ui.draw.clip
+import androidx.compose.ui.graphics.Color
+import androidx.compose.ui.layout.ContentScale
+import androidx.compose.ui.text.font.FontWeight
+import androidx.compose.ui.unit.dp
+import androidx.lifecycle.viewmodel.compose.viewModel
+import com.drawer.platform.data.model.StoreEntity
+import com.drawer.platform.ui.theme.DrawerWideTheme
 import com.drawer.platform.utils.FileHelper
-import com.drawer.platform.utils.loadFromPath
-import com.drawer.platform.utils.loadFromUri
-import com.drawer.platform.utils.showToast
+import com.drawer.platform.utils.SharedPrefManager
 
-class CreateStoreActivity : AppCompatActivity() {
-    private lateinit var binding: ActivityCreateStoreBinding
-    private val vm: CreateStoreViewModel by viewModels()
-    private var bannerUri: Uri? = null
-    private var savedBannerPath: String? = null
-
-    private val pickBanner = registerForActivityResult(ActivityResultContracts.GetContent()) { uri ->
-        uri?.let { bannerUri = it; binding.ivBanner.loadFromUri(it) }
-    }
+class CreateStoreActivity : ComponentActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        binding = ActivityCreateStoreBinding.inflate(layoutInflater)
-        setContentView(binding.root)
-        setSupportActionBar(binding.toolbar)
-        supportActionBar?.setDisplayHomeAsUpEnabled(true)
+        setContent {
+            val prefs = SharedPrefManager.getInstance(this)
+            val vm: CreateStoreViewModel = viewModel()
+            DrawerWideTheme(darkTheme = prefs.isDarkMode()) {
+                CreateStoreScreen(vm) { finish() }
+            }
+        }
+    }
 
-        vm.existing.observe(this) { store ->
-            if (store != null) {
-                binding.toolbar.title = "Edit Store"
-                binding.etStoreName.setText(store.storeName)
-                binding.etStoreDesc.setText(store.description)
-                binding.etStorePhone.setText(store.phone)
-                binding.etStoreAddress.setText(store.address)
-                savedBannerPath = store.bannerImagePath
-                binding.ivBanner.loadFromPath(store.bannerImagePath)
-            } else {
-                binding.toolbar.title = "Create Your Store"
+    @OptIn(ExperimentalMaterial3Api::class)
+    @Composable
+    fun CreateStoreScreen(vm: CreateStoreViewModel, onBack: () -> Unit) {
+        val existingState = vm.existing.observeAsState()
+        val existing = existingState.value
+        val isSavedState = vm.saved.observeAsState(false)
+        val isSaved = isSavedState.value
+
+        var name by remember { mutableStateOf("") }
+        var desc by remember { mutableStateOf("") }
+        var phone by remember { mutableStateOf("") }
+        var address by remember { mutableStateOf("") }
+        var bannerUri by remember { mutableStateOf<Uri?>(null) }
+
+        LaunchedEffect(existing) {
+            existing?.let {
+                name = it.storeName
+                desc = it.description
+                phone = it.phone
+                address = it.address
             }
         }
 
-        binding.ivBanner.setOnClickListener { pickBanner.launch("image/*") }
-        binding.btnPickBanner.setOnClickListener { pickBanner.launch("image/*") }
-
-        binding.btnSave.setOnClickListener {
-            val name = binding.etStoreName.text.toString().trim()
-            val desc = binding.etStoreDesc.text.toString().trim()
-            if (name.isBlank()) { showToast("Store name is required"); return@setOnClickListener }
-            val bannerPath = bannerUri?.let { FileHelper.copyImageFromUri(this, it, "store_banners") } ?: savedBannerPath
-            vm.saveStore(name, desc, binding.etStorePhone.text.toString().trim(),
-                binding.etStoreAddress.text.toString().trim(), bannerPath)
+        if (isSaved) {
+            LaunchedEffect(Unit) { onBack() }
         }
 
-        vm.saved.observe(this) { if (it) { showToast("Store saved!"); finish() } }
-    }
+        val launcher = rememberLauncherForActivityResult(ActivityResultContracts.GetContent()) { uri ->
+            bannerUri = uri
+        }
 
-    override fun onSupportNavigateUp(): Boolean { finish(); return true }
+        Scaffold(
+            topBar = {
+                TopAppBar(
+                    title = { Text(if (existing != null) "Edit Store" else "Create Your Store") },
+                    navigationIcon = {
+                        IconButton(onClick = onBack) {
+                            Icon(Icons.Default.ArrowBack, contentDescription = "Back")
+                        }
+                    }
+                )
+            }
+        ) { padding ->
+            Column(
+                modifier = Modifier
+                    .padding(padding)
+                    .padding(20.dp)
+                    .verticalScroll(rememberScrollState()),
+                verticalArrangement = Arrangement.spacedBy(16.dp)
+            ) {
+                Box(
+                    modifier = Modifier
+                        .fillMaxWidth()
+                        .height(180.dp)
+                        .clip(RoundedCornerShape(12.dp))
+                        .background(MaterialTheme.colorScheme.surfaceVariant)
+                        .clickable { launcher.launch("image/*") },
+                    contentAlignment = Alignment.Center
+                ) {
+                    if (bannerUri == null && (existing?.bannerImagePath == null)) {
+                        Column(horizontalAlignment = Alignment.CenterHorizontally) {
+                            Icon(Icons.Default.Image, contentDescription = null, modifier = Modifier.size(48.dp))
+                            Text("Pick Store Banner", style = MaterialTheme.typography.labelLarge)
+                        }
+                    } else {
+                        Text("Banner Selected!", fontWeight = FontWeight.Bold)
+                    }
+                }
+
+                OutlinedTextField(
+                    value = name,
+                    onValueChange = { name = it },
+                    label = { Text("Store Name") },
+                    modifier = Modifier.fillMaxWidth()
+                )
+                OutlinedTextField(
+                    value = desc,
+                    onValueChange = { desc = it },
+                    label = { Text("Store Description") },
+                    modifier = Modifier.fillMaxWidth(),
+                    minLines = 3
+                )
+                OutlinedTextField(
+                    value = phone,
+                    onValueChange = { phone = it },
+                    label = { Text("Store Phone") },
+                    modifier = Modifier.fillMaxWidth()
+                )
+                OutlinedTextField(
+                    value = address,
+                    onValueChange = { address = it },
+                    label = { Text("Store Address") },
+                    modifier = Modifier.fillMaxWidth(),
+                    minLines = 2
+                )
+
+                Spacer(modifier = Modifier.height(24.dp))
+                Button(
+                    onClick = {
+                        val bannerPath = bannerUri?.let { FileHelper.copyImageFromUri(this@CreateStoreActivity, it, "store_banners") } ?: existing?.bannerImagePath
+                        vm.saveStore(name, desc, phone, address, bannerPath)
+                    },
+                    modifier = Modifier.fillMaxWidth().height(56.dp)
+                ) {
+                    Text("Save Store Settings")
+                }
+            }
+        }
+    }
 }
